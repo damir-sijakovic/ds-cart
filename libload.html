@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+  </head>
+  <body>	  
+	<style> 
+		
+
+	body{
+		font-family: monospace;
+		background-color: #5e5ea4;
+		background-image: linear-gradient(45deg, #4d4d93 25%, transparent 25%, transparent 75%, #4d4d93 75%), linear-gradient(45deg, #4d4d93 25%, transparent 25%, transparent 75%, #4d4d93 75%);
+		background-size: 100px 100px;
+		background-position: 0 0, 50px 50px; 
+	}
+	
+	.button{
+		display: inline;
+		color: white;
+		background: blue;
+		padding: 5px;
+		margin: 3px;
+		cursor: pointer;
+	}
+	
+	.button-group{
+		display: inline-grid;
+	}
+
+	#output{
+		position: fixed;
+		bottom: 10px;
+		background: blue;
+		color: white;
+		padding: 10px;
+		width: calc(100% - 400px);
+	}
+		
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+<h1 style="color:white">Shopping Cart</h1>
+	
+	
+	
+	
+	<div class="button-group">
+		<div class="button" onclick="addItemOne()">ADD ITEM 1 x3</div>
+		<div class="button" onclick="addItemTwo()">ADD ITEM 2</div>
+		<div class="button" onclick="addItemThree()">ADD ITEM 3</div>
+		<div class="button" onclick="addItemFour()">ADD ITEM 4</div>
+		<div class="button" onclick="deleteAll()">DELETE ITEMS</div>
+		<div class="button" onclick="show()">SHOW</div>
+		<div class="button" onclick="hide()">HIDE</div>
+		<div class="button" onclick="getData()">GET DATA</div>
+	</div>
+
+	<div id="output">{}</div>
+
+
+
+
+	<script src="DsCart.js"></script>
+	<script>
+
+		window.addEventListener("load", function(){
+			
+			initDsCart();
+
+		});
+		
+		
+		function addItemOne(){
+			dsCart.addItem({
+				'image':'01.jpg',
+				'quantity': 3,
+				'title':'Product name',
+				'price': 2.33,
+				'sku':'1111',
+			});	
+		}
+		
+		function addItemTwo(){
+			dsCart.addItem({
+				'image':'02.jpg',
+				'quantity': 1,
+				'title':'Product name',
+				'price': 2.33,
+				'sku':'2222',
+			});	
+		}
+		
+		function addItemThree(){
+			dsCart.addItem({
+				'image':'03.jpg',
+				'quantity': 1,
+				'title':'Product name',
+				'price': 2.33,
+				'sku':'3333',
+			});	
+		}
+		
+		function addItemFour(){
+			dsCart.addItem({
+				'image':'04.jpg',
+				'quantity': 1,
+				'title':'Product name',
+				'price': 2.33,
+				'sku':'4444',
+			});	
+		}
+		
+		function deleteAll(){
+			dsCart.deleteAllItems();
+		}
+		
+		function show(){
+			dsCart.show();
+		}
+		
+		function hide(){
+			dsCart.hide();
+		}
+		
+		function getData(){
+			document.getElementById("output").innerHTML = JSON.stringify(dsCart.getData(), null, 2);			
+		}
+		
+
+	</script>
+
+
+
+
+  </body>
+</html>
